@@ -1,0 +1,11 @@
+Model Information:
+* title:	Models tes
+* source:	https://sketchfab.com/3d-models/models-tes-24885133abf1498abdbd706ae94ce938
+* author:	saw product (https://sketchfab.com/sawproduct)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Models tes" (https://sketchfab.com/3d-models/models-tes-24885133abf1498abdbd706ae94ce938) by saw product (https://sketchfab.com/sawproduct) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

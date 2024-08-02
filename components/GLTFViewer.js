@@ -1,7 +1,7 @@
 // components/GLTFViewer.js
 import React, { useRef, useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, useGLTF, useAnimations, useCursor } from '@react-three/drei';
+import { OrbitControls, useGLTF, useAnimations, useCursor,OrthographicCamera  } from '@react-three/drei';
 import Modal from 'react-modal';
 import * as THREE from 'three';
 // Set up the modal root element
@@ -17,22 +17,28 @@ const Model = ({ url, onObjectClick }) => {
   useCursor(cursor); // Set cursor state
 
   useEffect(() => {
-    if (actions['naik','idle']) {
-      actions['naik'].play();
+    if (actions['air1','air2','air3','idleKomen','idle','idle2','pohon2','pohon4']) {
+      actions['air1'].play();
+      actions['air2'].play();
+      actions['air3'].play();
+      actions['idleKomen'].play();
       actions['idle'].play();
+      actions['idle2'].play();
+   
+      actions['pohon2'].play();
+   
+      actions['pohon4'].play();
+     
     }
   }, [actions]);
 
   const handlePointerDown = (event) => {
-    if (event.object.name === 'brok') {
-      actions['naik'].stop();
-      actions['idle'].stop();
-        actions['Action'].reset().play();
-        actions['Action'].setLoop(THREE.LoopOnce); // Set animation to play only once
-        actions['Action'].clampWhenFinished = true; // Ensure the animation doesn't loop
-        actions['kotak'].reset().play();
-        actions['kotak'].setLoop(THREE.LoopOnce); // Set animation to play only once
-        actions['kotak'].clampWhenFinished = true; // Ensure the animation doesn't loop
+    if (event.object.name === 'air') {
+    
+        actions['komen'].reset().play();
+        actions['komen'].setLoop(THREE.LoopOnce); // Set animation to play only once
+        actions['komen'].clampWhenFinished = true; // Ensure the animation doesn't loop
+      
        
        
       // Trigger click interaction
@@ -44,7 +50,7 @@ const Model = ({ url, onObjectClick }) => {
     const intersects = raycaster.intersectObjects(Object.values(nodes));
     if (intersects.length > 0) {
       const intersected = intersects[0].object;
-      if (intersected.name === 'brok') {
+      if (intersected.name === 'air') {
         setHoveredObject(intersected);
         setCursor(true); // Update cursor state
       }
@@ -84,7 +90,7 @@ const Model = ({ url, onObjectClick }) => {
 };
 
 const GLTFViewer = () => {
-  const modelUrl = '/models/test3d.gltf'; // URL model GLTF
+  const modelUrl = '/models/web1.gltf'; // URL model GLTF
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [audio, setAudio] = useState(null);
 
@@ -106,22 +112,23 @@ const GLTFViewer = () => {
   };
 
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-[1000px]">
       <Canvas>
+      <OrthographicCamera makeDefault position={[0, 0, 20]} zoom={100} />
         <ambientLight intensity={0.8} />
         <directionalLight position={[0, 10, 5]} intensity={1} />
         <directionalLight position={[0, -10, 5]} intensity={1} />
         <Model url={modelUrl} onObjectClick={handleObjectClick} />
         <OrbitControls 
-          minPolarAngle={-Math.PI / 4} // Min angle for vertical rotation
-          maxPolarAngle={Math.PI / 4} // Max angle for vertical rotation (90 degrees)
+          minPolarAngle={Math.PI / 3} // Min angle for vertical rotation
+          maxPolarAngle={Math.PI / 2} // Max angle for vertical rotation (90 degrees)
           minAzimuthAngle={-Math.PI / 4} // Min angle for horizontal rotation
           maxAzimuthAngle={Math.PI / 4} // Max angle for horizontal rotation (45 degrees)
           enableRotate={true} // Disable rotation
           enablePan={false} // Optionally, disable panning as well
-          minDistance={5} // Minimum distance for zoom
-          maxDistance={20} // Maximum distance for zoom
-          enableZoom={true} // Enable zoom
+        //   minDistance={5} // Minimum distance for zoom
+        //   maxDistance={20} // Maximum distance for zoom
+          enableZoom={false} // Enable zoom
         />
       </Canvas>
 
