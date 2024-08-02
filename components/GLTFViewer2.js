@@ -174,7 +174,7 @@ const GLTFViewer2 = () => {
       }}
       >
       <Environment files="/hdr/studio2.hdr" background /> {/* Ganti dengan path HDRI Anda */}
-      <OrthographicCamera makeDefault position={[0, 0, 20]} zoom={80} />
+      <OrthographicCamera makeDefault position={[0, 0, 20]} zoom={70} />
         <ambientLight intensity={0.2} />
         <directionalLight position={[0, 10, 5]} intensity={0.5}  shadow-mapSize-width={1024} shadow-mapSize-height={1024}/>
         <directionalLight position={[0, -10, 5]} intensity={0.5} shadow-mapSize-width={1024} shadow-mapSize-height={1024}/>
