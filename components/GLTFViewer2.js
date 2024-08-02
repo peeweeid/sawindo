@@ -164,7 +164,7 @@ const GLTFViewer2 = () => {
   };
 
   return (
-    <div className="w-full h-[800px]">
+    <div className="w-full h-4/5">
       <Canvas
       shadows
       gl={{
